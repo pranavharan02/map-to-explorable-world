@@ -1,0 +1,111 @@
+{
+ "half": 1200.0,
+ "lat0": 9.873,
+ "lon0": 76.289,
+ "mask": 2048,
+ "color": 1024,
+ "sdScale": 0.25,
+ "sections": {
+  "bOff": [
+   0,
+   3441,
+   "uint32"
+  ],
+  "bPts": [
+   13764,
+   28302,
+   "int16"
+  ],
+  "bAttr": [
+   70368,
+   13760,
+   "uint8"
+  ],
+  "tXY": [
+   84128,
+   189052,
+   "int16"
+  ],
+  "tAttr": [
+   462232,
+   189052,
+   "uint8"
+  ],
+  "fXY": [
+   651284,
+   205046,
+   "int16"
+  ],
+  "fAttr": [
+   1061376,
+   205046,
+   "uint8"
+  ],
+  "poles": [
+   1266424,
+   3192,
+   "float32"
+  ],
+  "wires": [
+   1279192,
+   1242,
+   "uint16"
+  ],
+  "lanes": [
+   1281676,
+   2734,
+   "int16"
+  ],
+  "bSpec": [
+   1287144,
+   3440,
+   "uint8"
+  ],
+  "walls": [
+   1290584,
+   98574,
+   "float32"
+  ],
+  "shrines": [
+   1684880,
+   102,
+   "float32"
+  ],
+  "stakes": [
+   1685288,
+   68,
+   "float32"
+  ],
+  "jetties": [
+   1685560,
+   6,
+   "float32"
+  ],
+  "nets": [
+   1685584,
+   42,
+   "float32"
+  ],
+  "boats": [
+   1685752,
+   78,
+   "float32"
+  ]
+ },
+ "counts": {
+  "buildings": 3440,
+  "trees": 94526,
+  "farTrees": 102523,
+  "nets": 14,
+  "boats": 26,
+  "poles": 798,
+  "wires": 621,
+  "lamps": 399,
+  "walls": 16429,
+  "shrines": 34,
+  "stakes": 17,
+  "jetties": 2
+ },
+ "far": 6000.0,
+ "source": "OpenStreetMap contributors (ODbL); Copernicus Sentinel-2 L2A 2026-01-10"
+}

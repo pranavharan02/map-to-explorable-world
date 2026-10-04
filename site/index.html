@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kumbalangi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Noto+Serif+Malayalam:wght@400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" href="data/world.bin" as="fetch" crossorigin>
+<link rel="preload" href="data/mask.webp" as="fetch" crossorigin>
+<style>:root{--ink:#f4efe4;--dim:#f4efe49e;--glass:#1216126b}html,body{height:100%;color:var(--ink);background:#0e1210;margin:0;font:13px/1.45 Inter,system-ui,sans-serif;overflow:hidden}#app canvas{width:100vw;height:100vh;display:block}#intro{cursor:pointer;z-index:5;background:radial-gradient(at 50% 60%,#0e121059,#0e1210d1);place-items:center;transition:opacity .9s;display:grid;position:fixed;inset:0}body.ready.started #intro{opacity:0;pointer-events:none}.card{text-align:center;max-width:560px;padding:0 16px}.ml{color:var(--dim);letter-spacing:.02em;font-family:Noto Serif Malayalam,serif;font-size:22px}h1{letter-spacing:-.01em;margin:6px 0 10px;font:300 64px/1 Fraunces,Georgia,serif}.sub{color:var(--dim);margin-bottom:26px}.keys{text-align:left;color:var(--dim);grid-template-columns:auto auto;justify-content:center;gap:4px 18px;font-size:12px;display:grid}.keys b{color:var(--ink);text-align:right;font-weight:500}#go{letter-spacing:.08em;text-transform:uppercase;border:1px solid #f4efe466;border-radius:999px;margin-top:26px;padding:10px 22px;font-size:11px;display:inline-block}body:not(.ready) #go{opacity:.4}#status{min-height:18px;color:var(--dim);margin-top:14px;font-size:12px}.hud{z-index:3;pointer-events:none;transition:opacity .4s;position:fixed}body.nohud .hud{opacity:0}#tl{top:16px;left:18px}#tl .t{font:400 20px Fraunces,Georgia,serif}#tl .m{color:var(--dim);font-size:12px}#tr{text-align:right;color:var(--dim);font-size:12px;top:16px;right:18px}#clock{color:var(--ink);font:500 13px Inter}#caption{text-align:center;opacity:0;text-shadow:0 1px 12px #0000008c;padding:0 16px;font:300 24px Fraunces,Georgia,serif;transition:opacity 1.2s;bottom:9vh;left:0;right:0}#caption.on{opacity:1}#hint{color:var(--dim);background:var(--glass);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-radius:999px;padding:6px 14px;font-size:12px;bottom:16px;left:50%;transform:translate(-50%)}body.locked #hint,body[data-mode=tour] #hint{opacity:0}#fps{font-variant-numeric:tabular-nums}#toast{background:var(--glass);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;border-radius:999px;padding:8px 16px;font-size:12.5px;transition:opacity .4s;top:64px;left:50%;transform:translate(-50%)}#toast.on{opacity:1}#credit{color:#f4efe473;font-size:11px;bottom:14px;right:18px}@media (max-width:640px){h1{font-size:44px}#credit{display:none}}</style>
+  <script type="module" crossorigin src="./assets/index-DZrJhkws.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<div id="intro">
+  <div class="card">
+    <div class="ml">കുമ്പളങ്ങി</div>
+    <h1>Kumbalangi</h1>
+    <div class="sub">An island village in the Kochi backwaters, rebuilt from open map and satellite data.</div>
+    <div class="keys">
+      <b>Click</b><span>look around (mouse) · W A S D to walk · Shift to run</span>
+      <b>G</b><span>drone tour over the island and the channel</span>
+      <b>F</b><span>free flight · Space / Q up and down · wheel for speed</span>
+      <b>T</b><span>next time of day · [ ] ±15 min · P time-lapse</span>
+      <b>V</b><span>take a canoe at the water’s edge (W/S paddle, A/D steer) · walk into the shallows</span>
+      <b>R · K</b><span>monsoon rain · kavaru, the glowing water at night</span>
+      <b>Esc · M · L</b><span>settings · island map (click to travel) · photo mode</span>
+      <b>1 – 5</b><span>east bank · village lane · prawn ponds · over the channel · overview</span>
+      <b>N · B</b><span>music · ambience (sound starts on your first click)</span>
+    </div>
+    <div id="go">Enter</div>
+    <div id="status">Loading…</div>
+  </div>
+</div>
+<div class="hud" id="tl"><div class="t">Kumbalangi</div><div class="m" id="mode">Walking</div></div>
+<div class="hud" id="tr"><div id="clock"></div><div id="fps"></div></div>
+<div class="hud" id="caption"></div>
+<div class="hud" id="hint">Click to look around · Esc for settings · M for the map · G for the drone tour</div>
+<div class="hud" id="toast"></div>
+<div class="hud" id="credit">Map © OpenStreetMap contributors · Copernicus Sentinel-2</div>
+<script>
+  document.getElementById('intro').addEventListener('click', () => { if (document.body.classList.contains('ready')) document.body.classList.add('started'); });
+  if (new URLSearchParams(location.search).has('nointro')) document.body.classList.add('started');
+</script>
+</body>
+</html>

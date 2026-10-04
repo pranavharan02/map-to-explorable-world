@@ -1,4 +1,5 @@
-# Builds the web app, with the world packages in web/public/worlds/, and publishes it to GitHub Pages.
+# Publishes site/ to GitHub Pages. site/ is a prebuilt copy of Kumbalangi, whose source lives in a private repository.
+# To refresh it, from kumbalangi/web: npx vite build --base ./ --outDir ../../map-to-explorable-world/site --emptyOutDir
 name: Deploy to GitHub Pages
 
 on:
@@ -20,19 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-          cache-dependency-path: web/package-lock.json
-      - run: npm ci
-        working-directory: web
-      - run: npm run build
-        working-directory: web
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: web/dist
+          path: site
 
   deploy:
     needs: build

@@ -11,8 +11,7 @@ This is the engine behind Kumbalangi, a backwater village in Kerala, rebuilt as 
 place the datasets cover. [How the engine works](docs/ENGINE.md) tells the story of each technique, with short
 excerpts from the code where it started.
 
-**[Open the live demo](https://pranavharan02.github.io/map-to-explorable-world/)** to walk through the two example
-worlds, Hallstatt and Marine Drive, in your browser.
+**[Walk through Kumbalangi](https://pranavharan02.github.io/map-to-explorable-world/)** in your browser.
 
 ## Worlds built with this engine
 
@@ -20,8 +19,9 @@ worlds, Hallstatt and Marine Drive, in your browser.
 
 An island village in the Kochi backwaters: 3,440 houses from OpenStreetMap footprints, 94,000 trees placed from
 Sentinel-2's vegetation index, boatmen and Chinese fishing nets, monsoon rain, and a sound score synthesized live. It
-draws its first frame about two seconds after the page opens, from a 2.6 MB package. The project itself isn't public;
-the excerpts in [How the engine works](docs/ENGINE.md) are the only code from it here.
+draws its first frame about two seconds after the page opens, from a 2.6 MB package. [Walk through it in your
+browser](https://pranavharan02.github.io/map-to-explorable-world/). Its source isn't public: the live site serves a
+prebuilt copy from `site/`, and the excerpts in [How the engine works](docs/ENGINE.md) are the only code from it here.
 
 | | |
 |---|---|
@@ -49,9 +49,7 @@ The two worlds in `web/public/worlds/` were built with the open pipeline in this
 
 ## Try it
 
-To try it without installing anything, open the [live demo](https://pranavharan02.github.io/map-to-explorable-world/).
-
-To run it locally, you need [Node.js](https://nodejs.org/) 20 or later and a browser with WebGL 2: a recent Chrome, Edge, Firefox, or
+To run the example worlds locally, you need [Node.js](https://nodejs.org/) 20 or later and a browser with WebGL 2: a recent Chrome, Edge, Firefox, or
 Safari.
 
 1. Install the dependencies:
