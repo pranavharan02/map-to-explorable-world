@@ -7,9 +7,12 @@ open elevation tiles, Sentinel-2 satellite imagery, and ESA WorldCover. A Python
 megabytes. A three.js runtime grows the buildings, trees, water, terrain, and sky from that package when the page
 loads, and holds 60 frames per second on an integrated laptop GPU.
 
-This is the engine behind two earlier worlds, a backwater village in Kerala and a hilltop campus in Madhya Pradesh,
-rebuilt as a general tool that works for any place the datasets cover. [How the engine works](docs/ENGINE.md) tells
-the story of each technique, with short excerpts from the code where it started.
+This is the engine behind Kumbalangi, a backwater village in Kerala, rebuilt as a general tool that works for any
+place the datasets cover. [How the engine works](docs/ENGINE.md) tells the story of each technique, with short
+excerpts from the code where it started.
+
+**[Open the live demo](https://pranavharan02.github.io/map-to-explorable-world/)** to walk through the two example
+worlds, Hallstatt and Marine Drive, in your browser.
 
 ## Worlds built with this engine
 
@@ -25,18 +28,6 @@ the excerpts in [How the engine works](docs/ENGINE.md) are the only code from it
 | ![A boatman poling a canoe across the backwater](docs/images/kumbalangi-boatman.jpg) | ![A village lane in monsoon rain, puddles on the tar](docs/images/kumbalangi-monsoon-lane.jpg) |
 | ![Sun shafts through coconut palms over a village lane](docs/images/kumbalangi-lane-sun-shafts.jpg) | ![The same lane at night under a street lamp](docs/images/kumbalangi-lane-night.jpg) |
 | ![The island from 60 m under drifting cumulus](docs/images/kumbalangi-overview.jpg) | ![The Sentinel-2 context around the island, 12 km across](docs/images/kumbalangi-sentinel2.jpg) |
-
-### IIM Indore campus
-
-The first world, and the one that set the pipeline's pattern: OpenStreetMap footprints and roads, SRTM terrain with
-building bumps removed, and about 9,800 trees placed from Sentinel-2 and WorldCover. Its landmarks were modeled in
-Blender from photographs, and four rounds of blind photo-matching critique shaped its look. It's an unofficial fan
-recreation, not affiliated with IIM Indore.
-
-| | |
-|---|---|
-| ![A drone view over the campus woods in morning light](docs/images/iim-indore-drone-morning.jpg) | ![The campus at golden hour from the air](docs/images/iim-indore-golden-hour.jpg) |
-| ![The academic block behind the fountain pool](docs/images/iim-indore-academic-block.jpg) | ![The main entrance lit at night, mirrored in the pool](docs/images/iim-indore-entrance-night.jpg) |
 
 ### Example worlds in this repository
 
@@ -58,7 +49,9 @@ The two worlds in `web/public/worlds/` were built with the open pipeline in this
 
 ## Try it
 
-You need [Node.js](https://nodejs.org/) 20 or later and a browser with WebGL 2: a recent Chrome, Edge, Firefox, or
+To try it without installing anything, open the [live demo](https://pranavharan02.github.io/map-to-explorable-world/).
+
+To run it locally, you need [Node.js](https://nodejs.org/) 20 or later and a browser with WebGL 2: a recent Chrome, Edge, Firefox, or
 Safari.
 
 1. Install the dependencies:
@@ -274,6 +267,5 @@ World packages and screenshots of them carry the licenses of their sources:
 
 For what each world needs when you publish it, see [Attribution](docs/DATA.md#attribution).
 
-Kumbalangi and the IIM Indore campus are unofficial fan projects, not affiliated with the village, the panchayat, any
-film, or IIM Indore. The engine was built in collaboration with Claude, on [three.js](https://threejs.org/) and
+Kumbalangi is an unofficial fan project, not affiliated with the village, the panchayat, or any film. The engine was built in collaboration with Claude, on [three.js](https://threejs.org/) and
 [Vite](https://vite.dev/).

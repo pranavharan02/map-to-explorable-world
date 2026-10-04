@@ -1,32 +1,21 @@
 # How the engine works
 
 This page walks through the techniques that make a real place walkable in a browser, in the order the data flows: from
-open datasets to a world package, then from the package to pixels. Most of them were worked out on two earlier
-projects, and the excerpts marked **From Kumbalangi** show where each one started. Those excerpts are short, and
+open datasets to a world package, then from the package to pixels. Most of them were worked out on an earlier project,
+Kumbalangi, and the excerpts marked **From Kumbalangi** show where each one started. Those excerpts are short, and
 they're the only code from that project in this repository. Everything under `pipeline/` and `web/` is a separate,
 general implementation.
 
 ## Where it came from
 
-The engine grew out of two worlds, each built in a few long sessions with Claude.
-
-**IIM Indore campus** came first: a walkable and flyable recreation of a hilltop campus in Madhya Pradesh. Its data
-pipeline set the pattern this repository still follows. OpenStreetMap supplied the footprints and roads, SRTM the
-terrain, and Sentinel-2 and ESA WorldCover the ground and about 9,800 trees. Its landmarks, though, were modeled
-in Blender from photographs, and it was heavy: 46 to 55 ms per frame on an integrated laptop GPU at 1024×768. A
-blind critic loop shaped its look over four rounds. Each round, a fresh AI critic tried to pick a real photograph
-out of a pair, and scored the render for realism and fidelity. The scores rose from 2.8 and 2.4 out of 10 to 3.25 and
-3.92. The biggest single gain was a color bug, not more modeling: Blender's material colors are linear, and every
-hand-picked sRGB color had been rendering near white.
-
-**Kumbalangi**, an island village in the Kochi backwaters, was rebuilt from that idea with one constraint: it had to
-run smoothly on the same integrated GPU. It drew its first frame about two seconds after the page opened, from a
+**Kumbalangi**, an island village in the Kochi backwaters, was built in a few long sessions with Claude, with one
+constraint: it had to run smoothly on an integrated laptop GPU. It drew its first frame about two seconds after the page opened, from a
 2.6 MB package, and generated everything else in code when the page loaded: 3,440 houses from their footprints,
 94,000 trees, the water, the sky, the people on the water, and the sound. Its frame time on the integrated GPU went
 from 18.1 ms to between 7 and 11 ms in the first version. A setting that drops the render resolution to half only
 saved about 30%, which pointed at the real cost: the number of geometry passes, not the number of pixels.
 
-This repository generalizes the pair. The pipeline works for any place on Earth that the four datasets cover, and
+This repository generalizes it. The pipeline works for any place on Earth that the four datasets cover, and
 the runtime knows nothing about any one place.
 
 ## The budget
@@ -43,15 +32,8 @@ Every decision follows from four numbers:
 ### Elevation you can stand on
 
 Satellite elevation is often a surface model: roofs and tree crowns sit on the ground as bumps, and a 30 m staircase
-shows as facets underfoot. The IIM Indore build removed both with two operations:
-
-**From IIM Indore** (`data/build_scene.py`):
-
-```python
-# SRTM is a surface model: buildings and tree crowns sit on it as bumps. A grey opening (~40 m) removes positive
-# features narrower than the window while keeping the 300 m-wide hill; a light blur then smooths the 30 m staircase.
-dem = gaussian_filter(grey_opening(dem, size=(9, 9)), 2.0)
-```
+shows as facets underfoot. A grey opening (an erosion followed by a dilation, about 36 m
+wide) removes positive features narrower than its window while keeping hills, and a light blur smooths the staircase.
 
 Applied everywhere, that opening also shaves the crests of real ridges, as the Hallstatt example showed: up
 to 57 m came off forested ridges, because Austria's elevation is already a bare-earth lidar model. So the pipeline
@@ -307,8 +289,7 @@ Three mechanisms keep the frame inside its budget:
 - **Quality presets from the GPU.** The runtime reads the renderer string that WebGL reports and picks `low`, `med`,
   or `high`; `?q=` overrides it.
 - **Shaders compiled before the first frame.** `renderer.compileAsync()` compiles every program in parallel where the
-  driver supports `KHR_parallel_shader_compile`, including the variants that only the reflection pass uses. The IIM
-  Indore build also showed that three.js's `debug.checkShaderErrors` serializes every compile, so it stays off unless
+  driver supports `KHR_parallel_shader_compile`, including the variants that only the reflection pass uses. The three.js `debug.checkShaderErrors` option serializes every compile, so it stays off unless
   you add `?debug`.
 - **A resolution governor.** Vsync caps the frame times that `requestAnimationFrame` reports, so a frame time near
   the refresh interval says nothing about headroom. The governor learns the display's refresh interval, lowers the
@@ -329,7 +310,7 @@ else if (p50 < perf.refresh * 1.04) { if (++perf.hold > 120) { next = Math.min(M
 
 ## Measurement
 
-Guesses about GPU cost are usually wrong, so both earlier projects measured. `window.__world.gpuProbe()` in this
+Guesses about GPU cost are usually wrong, so Kumbalangi measured everything. `window.__world.gpuProbe()` in this
 repository times frames with `EXT_disjoint_timer_query_webgl2`, once in full and once with each part of the scene
 turned off, and returns GPU milliseconds per configuration. Two lessons from Kumbalangi about reading those numbers:
 
@@ -343,7 +324,6 @@ turned off, and returns GPU milliseconds per configuration. Two lessons from Kum
 
 These took the most time to find, and any project like this one can run into them:
 
-- Blender's Principled BSDF and glTF `baseColorFactor` are linear. Convert hand-picked sRGB colors first.
 - A `//` comment at the end of a one-line GLSL `main()` swallows the closing brace, and the shader fails without an
   error that points at the comment.
 - `half` is a reserved word in GLSL ES, so it can't name a function parameter.
