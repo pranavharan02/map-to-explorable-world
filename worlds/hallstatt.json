@@ -1,0 +1,12 @@
+{
+  "name": "Hallstatt",
+  "subtitle": "A lake village under the Dachstein, Upper Austria",
+  "center": {"lat": 47.5605, "lon": 13.6445},
+  "half": 1000,
+  "far": 9000,
+  "timeZone": "Europe/Vienna",
+  "tz": 1,
+  "sentinel2": {"months": [6, 7, 8, 9], "maxCloud": 30},
+  "vegetation": {"biome": "temperate"},
+  "buildings": {"palette": "europe", "pitched": 0.95}
+}

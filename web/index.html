@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>map to explorable world</title>
+<meta name="description" content="A real place, rebuilt in the browser from OpenStreetMap, open elevation data and Sentinel-2 imagery.">
+<style>
+  :root {
+    --paper: #f2ede2; --ink: #1c1a16; --ink-2: #4a463d; --rule: #1c1a16; --accent: #b4441f;
+    --hud: rgba(14, 15, 17, 0.62); --hud-ink: #f3efe6;
+    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    --mono: ui-monospace, 'SF Mono', 'Cascadia Mono', 'Segoe UI Mono', Consolas, monospace;
+    --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #0d0e10; color: var(--hud-ink); font: 15px/1.45 var(--sans); }
+  #app, #app canvas { position: fixed; inset: 0; display: block; }
+
+  /* ---- the intro: a survey-map legend block */
+  #intro { position: fixed; inset: 0; display: grid; place-items: center; padding: 16px; background: rgba(8, 9, 10, 0.35);
+    transition: opacity .5s; z-index: 10; }
+  body.started #intro { opacity: 0; pointer-events: none; }
+  .sheet { width: min(620px, 100%); max-height: calc(100vh - 32px); overflow: auto; box-sizing: border-box; background: var(--paper); color: var(--ink);
+    border: 1.5px solid var(--rule); outline: 1px solid var(--rule); outline-offset: 4px; padding: 26px 30px 22px; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+  .sheet .kicker { font: 600 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); display: flex; justify-content: space-between; border-bottom: 1px solid var(--rule); padding-bottom: 10px; }
+  .sheet h1 { font: 500 46px/1.05 var(--serif); margin: 18px 0 4px; letter-spacing: -.01em; }
+  .sheet .sub { font: italic 18px/1.35 var(--serif); color: var(--ink-2); margin: 0 0 18px; }
+  .sheet dl { display: grid; grid-template-columns: 9.5em 1fr; margin: 0; border-top: 1px solid var(--rule); }
+  .sheet dt, .sheet dd { margin: 0; padding: 7px 0; border-bottom: 1px solid rgba(28,26,22,.25); }
+  .sheet dt { font: 600 12px/1.6 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .sheet dd { font: 15px/1.5 var(--mono); }
+  .sheet h2 { font: 600 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; margin: 18px 0 8px; color: var(--ink-2); }
+  .sheet ul { margin: 0; padding-left: 1.1em; font-size: 15px; }
+  .sheet .keys { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 18px; font-size: 15px; }
+  .sheet kbd { font: 600 13px var(--mono); border: 1px solid var(--ink); border-bottom-width: 2px; padding: 0 5px; border-radius: 3px; background: #fff8; }
+  .sheet .go { margin-top: 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  #enter { font: 600 16px var(--sans); color: var(--paper); background: var(--ink); border: 0; padding: 11px 26px; cursor: pointer; letter-spacing: .02em; }
+  #enter:disabled { opacity: .45; cursor: progress; }
+  body.ready #enter { opacity: 1; }
+  #status { font: 14px var(--mono); color: var(--ink-2); }
+  body.failed #status { color: var(--accent); }
+  #worlds { margin-top: 12px; font-size: 15px; color: var(--ink-2); }
+  #worlds a { color: var(--accent); }
+
+  /* ---- HUD */
+  .hud { position: fixed; z-index: 5; font: 14px/1.3 var(--mono); background: var(--hud); padding: 7px 11px; color: var(--hud-ink); pointer-events: none;
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+  #top { top: 14px; left: 14px; display: flex; gap: 14px; }
+  #mode { text-transform: uppercase; letter-spacing: .1em; font-weight: 600; }
+  #pos { bottom: 14px; left: 14px; }
+  #hint { top: 14px; right: 14px; }
+  #fps { bottom: 14px; right: 250px; }
+  #fps:empty { display: none; }
+  #minimap { position: fixed; z-index: 5; right: 14px; bottom: 14px; width: 220px; height: 220px; border: 1.5px solid #f3efe6; background: #000; }
+  #minimap.large { width: 80vmin; height: 80vmin; right: calc(50vw - 40vmin); bottom: calc(50vh - 40vmin); cursor: crosshair; z-index: 8; }
+  body:not(.started) .hud, body:not(.started) #minimap, body.nohud .hud, body.nohud #minimap { display: none; }
+  #caption { position: fixed; left: 50%; bottom: 64px; transform: translateX(-50%); z-index: 6; font: italic 22px/1.3 var(--serif); color: #fff;
+    text-shadow: 0 1px 12px rgba(0,0,0,.8); opacity: 0; transition: opacity .8s; text-align: center; padding: 0 16px; pointer-events: none; }
+  #caption.on { opacity: 1; }
+  #toast { position: fixed; top: 60px; left: 50%; transform: translateX(-50%); z-index: 7; background: var(--paper); color: var(--ink); font: 15px var(--sans);
+    padding: 8px 14px; border: 1px solid var(--ink); opacity: 0; transition: opacity .4s; pointer-events: none; max-width: calc(100vw - 32px); }
+  #toast.on { opacity: 1; }
+  #help { position: fixed; inset: 0; z-index: 9; display: none; place-items: center; padding: 16px; background: rgba(8,9,10,.5); }
+  body.help #help { display: grid; }
+  #help .sheet { width: min(560px, 100%); }
+  @media (max-width: 640px) { .sheet h1 { font-size: 36px; } .sheet dl { grid-template-columns: 1fr; } .sheet dt { padding-bottom: 0; border: 0; } .sheet .keys { grid-template-columns: 1fr; } #minimap { width: 140px; height: 140px; } #fps { display: none; } }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="intro">
+  <section class="sheet" aria-labelledby="title">
+    <div class="kicker"><span>map to explorable world</span><span>sheet 1</span></div>
+    <h1 id="title">Loading…</h1>
+    <p class="sub" id="subtitle"></p>
+    <dl id="facts"></dl>
+    <h2>Sources</h2>
+    <ul id="credits"></ul>
+    <h2>Controls</h2>
+    <div class="keys">
+      <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> and the mouse: walk</span>
+      <span><kbd>F</kbd> fly · <kbd>G</kbd> drone tour</span>
+      <span><kbd>T</kbd> next time of day · <kbd>[</kbd> <kbd>]</kbd> ±15 min</span>
+      <span><kbd>1</kbd>–<kbd>9</kbd> viewpoints · <kbd>M</kbd> map</span>
+    </div>
+    <div class="go"><button id="enter" disabled>Enter</button><span id="status">Starting…</span></div>
+    <div id="worlds"></div>
+  </section>
+</div>
+<div id="help">
+  <section class="sheet">
+    <div class="kicker"><span>help</span><span>H to close</span></div>
+    <h2>Moving</h2>
+    <div class="keys">
+      <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> walk, <kbd>Shift</kbd> run, <kbd>Space</kbd> jump</span>
+      <span><kbd>F</kbd> free flight; <kbd>Space</kbd> / <kbd>Q</kbd> climb and sink; wheel sets speed</span>
+      <span><kbd>G</kbd> drone tour; any movement key takes over</span>
+      <span><kbd>1</kbd>–<kbd>9</kbd> viewpoints from the data</span>
+    </div>
+    <h2>Seeing</h2>
+    <div class="keys">
+      <span><kbd>T</kbd> next time of day</span>
+      <span><kbd>[</kbd> <kbd>]</kbd> move the clock 15 minutes</span>
+      <span><kbd>P</kbd> time-lapse</span>
+      <span><kbd>M</kbd> map: corner, large (click to go), off</span>
+      <span><kbd>U</kbd> hide the interface</span>
+      <span><code>?q=low|med|high</code> quality · <code>?fps</code> stats</span>
+    </div>
+  </section>
+</div>
+<div class="hud" id="top"><span id="mode">Walking</span><span id="clock"></span></div>
+<div class="hud" id="pos"></div>
+<div class="hud" id="hint">H help</div>
+<div class="hud" id="fps"></div>
+<canvas id="minimap"></canvas>
+<div id="caption"></div>
+<div id="toast"></div>
+<script type="module">
+  // the Enter button wakes up once the first frame has been drawn
+  new MutationObserver(() => { if (document.body.classList.contains('ready')) document.getElementById('enter').disabled = false; })
+    .observe(document.body, { attributes: true, attributeFilter: ['class'] });
+</script>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

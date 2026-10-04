@@ -1,0 +1,474 @@
+{
+ "format": 1,
+ "generator": "map-to-explorable-world 1.0.0",
+ "built": "2026-10-05",
+ "id": "marine-drive",
+ "name": "Marine Drive",
+ "subtitle": "Back Bay, Chowpatty and Malabar Hill, Mumbai",
+ "center": {
+  "lat": 18.948,
+  "lon": 72.815
+ },
+ "timeZone": "Asia/Kolkata",
+ "tz": 5.5,
+ "half": 1300.0,
+ "biome": "tropical",
+ "palette": "south-asia",
+ "height": {
+  "n": 1025,
+  "lo": -354.007,
+  "scale": 0.006527342122121774
+ },
+ "mask": {
+  "n": 2048,
+  "shoreScale": 0.25,
+  "roadScale": 0.125
+ },
+ "cover": {
+  "n": 1024
+ },
+ "far": {
+  "half": 8000.0,
+  "n": 513,
+  "lo": -45.928,
+  "scale": 0.01,
+  "colorN": 1024,
+  "sdScale": 2.0,
+  "trees": 23024
+ },
+ "water": {
+  "bodies": [
+   {
+    "level": 2.14,
+    "area": 3623168,
+    "flat": true,
+    "x": -297.1,
+    "y": -439.3
+   },
+   {
+    "level": 3.47,
+    "area": 1612,
+    "flat": false,
+    "x": 38.1,
+    "y": 538.3
+   },
+   {
+    "level": 5.65,
+    "area": 935,
+    "flat": false,
+    "x": -1206.1,
+    "y": 269.1
+   },
+   {
+    "level": 7.09,
+    "area": 477,
+    "flat": true,
+    "x": 1096.9,
+    "y": -1162.9
+   },
+   {
+    "level": 5.2,
+    "area": 335,
+    "flat": true,
+    "x": 10.2,
+    "y": 568.8
+   },
+   {
+    "level": 55.39,
+    "area": 187,
+    "flat": true,
+    "x": -1211.1,
+    "y": 718.6
+   }
+  ]
+ },
+ "counts": {
+  "buildings": 1165,
+  "bridges": 32,
+  "trees": 10608,
+  "species": [
+   5164,
+   1752,
+   0,
+   0,
+   2724,
+   968
+  ]
+ },
+ "spawn": {
+  "x": 317.28,
+  "y": 712.54,
+  "heading": 2.454,
+  "mode": "walk"
+ },
+ "views": [
+  {
+   "name": "Start",
+   "x": 317.28,
+   "y": 712.54,
+   "heading": 2.454,
+   "mode": "walk"
+  },
+  {
+   "name": "Gamdevi",
+   "x": -302.9,
+   "y": 1201.8,
+   "heading": -1.254,
+   "mode": "walk"
+  },
+  {
+   "name": "Mahalaxmi Mandir",
+   "x": 754.17,
+   "y": 751.27,
+   "heading": 2.002,
+   "mode": "walk"
+  },
+  {
+   "name": "Shri Venkatesha",
+   "x": 1133.63,
+   "y": 454.2,
+   "heading": 0.156,
+   "mode": "walk"
+  },
+  {
+   "name": "Our Lady of Seven Dolours",
+   "x": 1158.41,
+   "y": -441.65,
+   "heading": -2.616,
+   "mode": "walk"
+  },
+  {
+   "name": "कमला नेहरू पार्क",
+   "x": -1065.57,
+   "y": 764.25,
+   "heading": 1.104,
+   "mode": "walk"
+  },
+  {
+   "name": "Waterfront",
+   "x": 336.46,
+   "y": 222.59,
+   "heading": -2.334,
+   "mode": "walk"
+  },
+  {
+   "name": "High ground",
+   "x": -1035.94,
+   "y": 812.5,
+   "heading": -0.074,
+   "mode": "walk"
+  },
+  {
+   "name": "Overview",
+   "x": -715.0,
+   "y": -715.0,
+   "heading": 0.785,
+   "mode": "fly",
+   "agl": 476
+  }
+ ],
+ "tour": [
+  {
+   "x": -441.2,
+   "y": -441.2,
+   "agl": 97,
+   "caption": ""
+  },
+  {
+   "x": -121.8,
+   "y": -769.1,
+   "agl": 137,
+   "caption": ""
+  },
+  {
+   "x": 265.2,
+   "y": -520.5,
+   "agl": 177,
+   "caption": ""
+  },
+  {
+   "x": 427.3,
+   "y": -217.7,
+   "agl": 97,
+   "caption": ""
+  },
+  {
+   "x": 779.4,
+   "y": 155.0,
+   "agl": 137,
+   "caption": "Thakurdwar"
+  },
+  {
+   "x": 513.2,
+   "y": 547.3,
+   "agl": 177,
+   "caption": "Gaiwadi"
+  },
+  {
+   "x": 170.8,
+   "y": 584.8,
+   "agl": 97,
+   "caption": "Girgaon"
+  },
+  {
+   "x": -239.5,
+   "y": 470.1,
+   "agl": 137,
+   "caption": ""
+  },
+  {
+   "x": -675.4,
+   "y": 344.1,
+   "agl": 177,
+   "caption": ""
+  },
+  {
+   "x": -677.4,
+   "y": -107.3,
+   "agl": 97,
+   "caption": ""
+  }
+ ],
+ "labels": [
+  {
+   "name": "Navjeevan Wadi",
+   "kind": "neighbourhood",
+   "x": 1189.3,
+   "y": -554.1
+  },
+  {
+   "name": "Gaiwadi",
+   "kind": "locality",
+   "x": 489.0,
+   "y": 574.2
+  },
+  {
+   "name": "Ambe Wadi",
+   "kind": "locality",
+   "x": 607.6,
+   "y": 868.2
+  },
+  {
+   "name": "Malabar Hill",
+   "kind": "suburb",
+   "x": -1225.3,
+   "y": 1124.8
+  },
+  {
+   "name": "Dadi Seth Wadi",
+   "kind": "locality",
+   "x": -840.9,
+   "y": 887.5
+  },
+  {
+   "name": "Gamdevi",
+   "kind": "suburb",
+   "x": -289.4,
+   "y": 1160.7
+  },
+  {
+   "name": "Our Lady of Seven Dolours",
+   "kind": "worship",
+   "x": 1140.2,
+   "y": -452.2
+  },
+  {
+   "name": "Gol Masjid",
+   "kind": "worship",
+   "x": 1292.3,
+   "y": -581.8
+  },
+  {
+   "name": "Sikka Nagar",
+   "kind": "locality",
+   "x": 809.0,
+   "y": 1028.2
+  },
+  {
+   "name": "Khareghat Colony",
+   "kind": "locality",
+   "x": -651.3,
+   "y": 1288.0
+  },
+  {
+   "name": "Badamwadi",
+   "kind": "locality",
+   "x": 0.8,
+   "y": 1040.0
+  },
+  {
+   "name": "Khotachi Wadi",
+   "kind": "locality",
+   "x": 588.4,
+   "y": 830.3
+  },
+  {
+   "name": "Suryenarayan Mandir",
+   "kind": "worship",
+   "x": 1159.2,
+   "y": 1114.6
+  },
+  {
+   "name": "Syed Qadar Shah Vali",
+   "kind": "worship",
+   "x": 1290.5,
+   "y": -655.2
+  },
+  {
+   "name": "Girgaon",
+   "kind": "suburb",
+   "x": 306.3,
+   "y": 699.2
+  },
+  {
+   "name": "Babulnath",
+   "kind": "locality",
+   "x": -850.3,
+   "y": 1146.6
+  },
+  {
+   "name": "Bhat Wadi",
+   "kind": "locality",
+   "x": 309.9,
+   "y": 887.4
+  },
+  {
+   "name": "Kandewadi",
+   "kind": "locality",
+   "x": 539.8,
+   "y": 797.2
+  },
+  {
+   "name": "Sai Wadi",
+   "kind": "locality",
+   "x": 615.6,
+   "y": 729.5
+  },
+  {
+   "name": "Mahalaxmi Mandir",
+   "kind": "worship",
+   "x": 738.1,
+   "y": 786.1
+  },
+  {
+   "name": "Thakurdwar",
+   "kind": "locality",
+   "x": 909.8,
+   "y": 222.9
+  },
+  {
+   "name": "कमला नेहरू पार्क",
+   "kind": "attraction",
+   "x": -1065.1,
+   "y": 764.0
+  },
+  {
+   "name": "Walkeshwar",
+   "kind": "locality",
+   "x": -1169.8,
+   "y": 489.3
+  },
+  {
+   "name": "Shri Venkatesha",
+   "kind": "worship",
+   "x": 1135.2,
+   "y": 444.4
+  },
+  {
+   "name": "Echo Point",
+   "kind": "viewpoint",
+   "x": -943.9,
+   "y": 943.0
+  },
+  {
+   "name": "Navi Wadi",
+   "kind": "neighbourhood",
+   "x": 1097.0,
+   "y": 209.2
+  }
+ ],
+ "credits": {
+  "osm": "© OpenStreetMap contributors (ODbL)",
+  "sentinel2": "Contains modified Copernicus Sentinel-2 data (2023-11-18, 2024-01-12, 2024-02-06, 2024-03-17)",
+  "elevation": "Terrain Tiles (Mapzen / Tilezen) on AWS, zoom 15: SRTM, 3DEP, EU-DEM and national models",
+  "worldcover": "ESA WorldCover 10 m 2021 v200 (CC BY 4.0)"
+ },
+ "sections": {
+  "rOff": [
+   0,
+   1196,
+   "uint32"
+  ],
+  "bRing": [
+   4784,
+   1166,
+   "uint32"
+  ],
+  "bPts": [
+   9448,
+   13302,
+   "int16"
+  ],
+  "bH": [
+   36052,
+   3495,
+   "uint16"
+  ],
+  "bA": [
+   43044,
+   9320,
+   "uint8"
+  ],
+  "bC": [
+   52364,
+   6990,
+   "uint8"
+  ],
+  "brOff": [
+   59356,
+   33,
+   "uint32"
+  ],
+  "brPts": [
+   59488,
+   256,
+   "int16"
+  ],
+  "brA": [
+   60000,
+   128,
+   "float32"
+  ],
+  "tXY": [
+   60512,
+   21216,
+   "int16"
+  ],
+  "tA": [
+   102944,
+   31824,
+   "uint8"
+  ],
+  "fXY": [
+   134768,
+   46048,
+   "int16"
+  ],
+  "fA": [
+   226864,
+   69072,
+   "uint8"
+  ]
+ },
+ "files": {
+  "height.webp": 298860,
+  "water.webp": 4046,
+  "mask.webp": 486016,
+  "cover.webp": 122926,
+  "ground.webp": 83768,
+  "color.webp": 55076,
+  "farh.webp": 72686,
+  "far.webp": 138328,
+  "world.bin": 295936
+ }
+}

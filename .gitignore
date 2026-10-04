@@ -1,0 +1,12 @@
+# downloaded datasets (rebuilt on demand by the pipeline)
+cache/
+# web toolchain
+web/node_modules/
+web/dist/
+# canvas captures from tools/capture_server.py
+tools/caps/
+# per-world inspection sheets from tools/inspect_world.py
+web/public/worlds/*_inspect.jpg
+__pycache__/
+*.pyc
+.DS_Store

@@ -1,0 +1,12 @@
+{
+  "name": "Marine Drive",
+  "subtitle": "Back Bay, Chowpatty and Malabar Hill, Mumbai",
+  "center": {"lat": 18.9480, "lon": 72.8150},
+  "half": 1300,
+  "far": 8000,
+  "timeZone": "Asia/Kolkata",
+  "tz": 5.5,
+  "sentinel2": {"months": [11, 12, 1, 2, 3], "maxCloud": 20},
+  "vegetation": {"biome": "tropical"},
+  "buildings": {"palette": "south-asia"}
+}

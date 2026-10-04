@@ -1,0 +1,533 @@
+{
+ "format": 1,
+ "generator": "map-to-explorable-world 1.0.0",
+ "built": "2026-10-05",
+ "id": "hallstatt",
+ "name": "Hallstatt",
+ "subtitle": "A lake village under the Dachstein, Upper Austria",
+ "center": {
+  "lat": 47.5605,
+  "lon": 13.6445
+ },
+ "timeZone": "Europe/Vienna",
+ "tz": 1,
+ "half": 1000.0,
+ "biome": "temperate",
+ "palette": "europe",
+ "height": {
+  "n": 1025,
+  "lo": 501.355,
+  "scale": 0.012849328232815453
+ },
+ "mask": {
+  "n": 2048,
+  "shoreScale": 0.25,
+  "roadScale": 0.125
+ },
+ "cover": {
+  "n": 1024
+ },
+ "far": {
+  "half": 9000.0,
+  "n": 513,
+  "lo": 492.81,
+  "scale": 0.03568373496861818,
+  "colorN": 1024,
+  "sdScale": 2.0,
+  "trees": 140000
+ },
+ "water": {
+  "bodies": [
+   {
+    "level": 508.35,
+    "area": 1227341,
+    "flat": true,
+    "x": 683.6,
+    "y": -13.7
+   },
+   {
+    "level": 806.5,
+    "area": 5779,
+    "flat": false,
+    "x": -531.2,
+    "y": 416.0
+   },
+   {
+    "level": 519.02,
+    "area": 854,
+    "flat": false,
+    "x": -642.6,
+    "y": -945.3
+   },
+   {
+    "level": 510.16,
+    "area": 408,
+    "flat": true,
+    "x": -95.7,
+    "y": -564.5
+   },
+   {
+    "level": 513.27,
+    "area": 328,
+    "flat": true,
+    "x": -246.1,
+    "y": -755.9
+   },
+   {
+    "level": 512.58,
+    "area": 130,
+    "flat": true,
+    "x": 341.8,
+    "y": 242.2
+   },
+   {
+    "level": 516.59,
+    "area": 111,
+    "flat": false,
+    "x": 308.6,
+    "y": 197.3
+   },
+   {
+    "level": 509.92,
+    "area": 99,
+    "flat": true,
+    "x": 97.7,
+    "y": -509.8
+   },
+   {
+    "level": 510.32,
+    "area": 95,
+    "flat": true,
+    "x": -3.9,
+    "y": -515.6
+   },
+   {
+    "level": 509.09,
+    "area": 42,
+    "flat": false,
+    "x": 449.2,
+    "y": 869.1
+   },
+   {
+    "level": 521.54,
+    "area": 38,
+    "flat": false,
+    "x": 277.3,
+    "y": 185.5
+   },
+   {
+    "level": 515.06,
+    "area": 38,
+    "flat": true,
+    "x": -267.6,
+    "y": -941.4
+   },
+   {
+    "level": 509.99,
+    "area": 34,
+    "flat": false,
+    "x": 400.4,
+    "y": 449.2
+   },
+   {
+    "level": 510.19,
+    "area": 27,
+    "flat": true,
+    "x": -33.2,
+    "y": -523.4
+   },
+   {
+    "level": 510.15,
+    "area": 27,
+    "flat": true,
+    "x": 121.1,
+    "y": -753.9
+   },
+   {
+    "level": 519.68,
+    "area": 27,
+    "flat": true,
+    "x": -503.9,
+    "y": -800.8
+   },
+   {
+    "level": 508.14,
+    "area": 23,
+    "flat": true,
+    "x": 453.1,
+    "y": 769.5
+   },
+   {
+    "level": 510.13,
+    "area": 23,
+    "flat": true,
+    "x": 127.0,
+    "y": -816.4
+   },
+   {
+    "level": 511.1,
+    "area": 23,
+    "flat": true,
+    "x": 132.8,
+    "y": -888.7
+   },
+   {
+    "level": 514.67,
+    "area": 19,
+    "flat": true,
+    "x": -289.1,
+    "y": -757.8
+   },
+   {
+    "level": 510.12,
+    "area": 19,
+    "flat": true,
+    "x": 128.9,
+    "y": -855.5
+   },
+   {
+    "level": 514.5,
+    "area": 19,
+    "flat": true,
+    "x": -273.4,
+    "y": -906.2
+   },
+   {
+    "level": 509.05,
+    "area": 15,
+    "flat": true,
+    "x": 248.0,
+    "y": -613.3
+   },
+   {
+    "level": 513.05,
+    "area": 15,
+    "flat": true,
+    "x": -216.8,
+    "y": -765.6
+   }
+  ]
+ },
+ "counts": {
+  "buildings": 760,
+  "bridges": 23,
+  "trees": 52306,
+  "species": [
+   23929,
+   6520,
+   17613,
+   2661,
+   0,
+   1583
+  ]
+ },
+ "spawn": {
+  "x": 325.8,
+  "y": 178.36,
+  "heading": 1.025,
+  "mode": "walk"
+ },
+ "views": [
+  {
+   "name": "Start",
+   "x": 325.8,
+   "y": 178.36,
+   "heading": 1.025,
+   "mode": "walk"
+  },
+  {
+   "name": "Lahn",
+   "x": 219.88,
+   "y": -513.59,
+   "heading": -2.934,
+   "mode": "walk"
+  },
+  {
+   "name": "Welterbe-Blick",
+   "x": -56.94,
+   "y": 73.07,
+   "heading": 0.268,
+   "mode": "walk"
+  },
+  {
+   "name": "Blick auf Hallstatt",
+   "x": 449.83,
+   "y": -732.18,
+   "heading": 1.706,
+   "mode": "walk"
+  },
+  {
+   "name": "Salzwelten Hallstatt",
+   "x": 69.96,
+   "y": -486.67,
+   "heading": 2.055,
+   "mode": "walk"
+  },
+  {
+   "name": "Max Edlen von Wunderbaldinger",
+   "x": -637.6,
+   "y": -846.2,
+   "heading": -0.111,
+   "mode": "walk"
+  },
+  {
+   "name": "Waterfront",
+   "x": 249.8,
+   "y": -20.36,
+   "heading": 0.015,
+   "mode": "walk"
+  },
+  {
+   "name": "Overview",
+   "x": -550.0,
+   "y": -550.0,
+   "heading": 0.785,
+   "mode": "fly",
+   "agl": 380
+  }
+ ],
+ "tour": [
+  {
+   "x": -339.4,
+   "y": -339.4,
+   "agl": 85,
+   "caption": ""
+  },
+  {
+   "x": -32.5,
+   "y": -551.9,
+   "agl": 125,
+   "caption": "Salzwelten Hallstatt"
+  },
+  {
+   "x": 207.0,
+   "y": -387.7,
+   "agl": 165,
+   "caption": "Franz Josef I"
+  },
+  {
+   "x": 281.8,
+   "y": -248.0,
+   "agl": 85,
+   "caption": ""
+  },
+  {
+   "x": 459.5,
+   "y": 108.2,
+   "agl": 125,
+   "caption": "Holzstiege Bronzezeit"
+  },
+  {
+   "x": 377.1,
+   "y": 374.3,
+   "agl": 165,
+   "caption": "Hallstätter Marienaltar"
+  },
+  {
+   "x": 169.9,
+   "y": 364.7,
+   "agl": 85,
+   "caption": ""
+  },
+  {
+   "x": -136.5,
+   "y": 247.3,
+   "agl": 125,
+   "caption": "Welterbe-Blick"
+  },
+  {
+   "x": -519.5,
+   "y": 264.7,
+   "agl": 165,
+   "caption": ""
+  },
+  {
+   "x": -521.1,
+   "y": -82.5,
+   "agl": 85,
+   "caption": ""
+  }
+ ],
+ "labels": [
+  {
+   "name": "Hallstatt",
+   "kind": "village",
+   "x": 313.8,
+   "y": 185.7
+  },
+  {
+   "name": "Salzberg",
+   "kind": "hamlet",
+   "x": -941.5,
+   "y": 502.7
+  },
+  {
+   "name": "Lahn",
+   "kind": "hamlet",
+   "x": 180.1,
+   "y": -522.0
+  },
+  {
+   "name": "Goaßerbankerl",
+   "kind": "viewpoint",
+   "x": 443.6,
+   "y": -994.3
+  },
+  {
+   "name": "Vesperbild-Kapelle",
+   "kind": "worship",
+   "x": 161.7,
+   "y": -961.0
+  },
+  {
+   "name": "Dreifaltikgeitssäule",
+   "kind": "attraction",
+   "x": 364.6,
+   "y": 213.7
+  },
+  {
+   "name": "Hohe Sieg",
+   "kind": "peak",
+   "x": -745.4,
+   "y": -80.3
+  },
+  {
+   "name": "Hallstätter Marienaltar",
+   "kind": "attraction",
+   "x": 331.9,
+   "y": 325.0
+  },
+  {
+   "name": "Isidor Engl",
+   "kind": "historic",
+   "x": 207.6,
+   "y": -579.9
+  },
+  {
+   "name": "Holzstiege Bronzezeit",
+   "kind": "historic",
+   "x": 349.7,
+   "y": 144.0
+  },
+  {
+   "name": "Salzwelten Hallstatt",
+   "kind": "museum",
+   "x": 59.2,
+   "y": -492.3
+  },
+  {
+   "name": "Welterbe-Blick",
+   "kind": "viewpoint",
+   "x": -64.9,
+   "y": 75.8
+  },
+  {
+   "name": "Blick auf Hallstatt",
+   "kind": "viewpoint",
+   "x": 453.5,
+   "y": -689.8
+  },
+  {
+   "name": "Badeinsel Hallstatt",
+   "kind": "attraction",
+   "x": 471.1,
+   "y": -741.5
+  },
+  {
+   "name": "Franz Josef I",
+   "kind": "historic",
+   "x": 211.5,
+   "y": -368.8
+  },
+  {
+   "name": "Max Edlen von Wunderbaldinger",
+   "kind": "historic",
+   "x": -637.1,
+   "y": -841.8
+  }
+ ],
+ "credits": {
+  "osm": "© OpenStreetMap contributors (ODbL)",
+  "sentinel2": "Contains modified Copernicus Sentinel-2 data (2025-09-19, 2026-08-14, 2026-08-15, 2026-09-23)",
+  "elevation": "Terrain Tiles (Mapzen / Tilezen) on AWS, zoom 15: SRTM, 3DEP, EU-DEM and national models",
+  "worldcover": "ESA WorldCover 10 m 2021 v200 (CC BY 4.0)"
+ },
+ "sections": {
+  "rOff": [
+   0,
+   761,
+   "uint32"
+  ],
+  "bRing": [
+   3044,
+   761,
+   "uint32"
+  ],
+  "bPts": [
+   6088,
+   8854,
+   "int16"
+  ],
+  "bH": [
+   23796,
+   2280,
+   "uint16"
+  ],
+  "bA": [
+   28356,
+   6080,
+   "uint8"
+  ],
+  "bC": [
+   34436,
+   4560,
+   "uint8"
+  ],
+  "brOff": [
+   38996,
+   24,
+   "uint32"
+  ],
+  "brPts": [
+   39092,
+   126,
+   "int16"
+  ],
+  "brA": [
+   39344,
+   92,
+   "float32"
+  ],
+  "tXY": [
+   39712,
+   104612,
+   "int16"
+  ],
+  "tA": [
+   248936,
+   156918,
+   "uint8"
+  ],
+  "fXY": [
+   405856,
+   280000,
+   "int16"
+  ],
+  "fA": [
+   965856,
+   420000,
+   "uint8"
+  ]
+ },
+ "files": {
+  "height.webp": 543806,
+  "water.webp": 32896,
+  "mask.webp": 335996,
+  "cover.webp": 86542,
+  "ground.webp": 65378,
+  "color.webp": 53922,
+  "farh.webp": 307684,
+  "far.webp": 368414,
+  "world.bin": 1385856
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "worlds": [
+  {
+   "id": "hallstatt",
+   "name": "Hallstatt",
+   "subtitle": "A lake village under the Dachstein, Upper Austria",
+   "size": 3.2
+  },
+  {
+   "id": "marine-drive",
+   "name": "Marine Drive",
+   "subtitle": "Back Bay, Chowpatty and Malabar Hill, Mumbai",
+   "size": 1.6
+  }
+ ]
+}

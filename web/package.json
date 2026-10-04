@@ -1,0 +1,18 @@
+{
+  "name": "map-to-explorable-world",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Explore a world package built from OpenStreetMap, elevation and Sentinel-2 data, in the browser.",
+  "scripts": {
+    "dev": "vite --port 5194 --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --port 5195 --host 127.0.0.1"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.2"
+  }
+}
